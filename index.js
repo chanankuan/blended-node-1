@@ -1,5 +1,5 @@
 import { program } from 'commander';
-import { createFile } from './files.js';
+import { createFile, getFiles, getFileInfo } from './files.js';
 
 program
   .option('-a, --action <type>', 'choose action')
@@ -17,12 +17,12 @@ async function invokeAction({ action, fileName, content }) {
       createFile(fileName, content);
       break;
 
-    case '':
-      // ... id
+    case 'getFiles':
+      getFiles();
       break;
 
-    case '':
-      // ... name email phone
+    case 'getFileInfo':
+      getFileInfo(fileName);
       break;
 
     default:
